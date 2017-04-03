@@ -2,8 +2,8 @@
   "name": "wp-phptidy",
   "displayName": "wp-phptidy",
   "description": "",
-  "version": "0.0.1",
-  "publisher": "Fredrik",
+  "version": "1.0.0",
+  "publisher": "Fredrik Forsmo <fredrik.forsmo@gmail.com>",
   "engines": {
     "vscode": "^1.10.0"
   },
@@ -32,8 +32,8 @@
     ]
   },
   "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
+    "postinstall": "if [ -f ./node_modules/vscode/bin/install ]; then node ./node_modules/vscode/bin/install; fi",
+    "test": "if [ -f ./node_modules/vscode/bin/test ]; node ./node_modules/vscode/bin/test; fi"
   },
   "dependencies": {
     "tmp": "0.0.31"

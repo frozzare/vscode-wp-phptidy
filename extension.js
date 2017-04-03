@@ -40,6 +40,12 @@ function activate(context) {
                 return;
             }
 
+            try {
+                fs.unlinkSync(name);
+            } catch (e) {
+                return;
+            }
+
             editor.edit(function (editorBuilder) {
                 const document = editor.document;
                 const lastLine = document.lineAt(document.lineCount - 2);

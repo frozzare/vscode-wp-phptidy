@@ -7,7 +7,7 @@ const tmp = require('tmp');
 function activate(context) {
     const disposable = vscode.commands.registerCommand('extension.wp-phptidy', function () {
         const editor = vscode.window.activeTextEditor;
-        
+
         if (!editor) {
             return;
         }
@@ -39,14 +39,14 @@ function activate(context) {
             } catch (e) {
                 return;
             }
-            
+
             editor.edit(function (editorBuilder) {
                 const document = editor.document;
-		const lastLine = document.lineAt(document.lineCount - 2);
+                const lastLine = document.lineAt(document.lineCount - 2);
 
                 const start = new vscode.Position(0, 0);
                 const end = new vscode.Position(document.lineCount - 1, lastLine.text.length);
-                
+
                 editorBuilder.replace(new vscode.Range(start, end), data);
             }, {
                 undoStopBefore: true,
